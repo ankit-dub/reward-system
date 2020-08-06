@@ -1,36 +1,48 @@
 package com.example.hackathon.rewards;
 
-import java.util.List;
-
+import com.example.hackathon.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.hackathon.model.Customer;
+import java.util.List;
 
-@RestController
-public class RewardsController {
+@Controller
+public class RewardsController implements ErrorController {
 
-	
+
 	@Autowired
 	private RewardsService rewardsService;
 
-	
+	@Override
+	@GetMapping("/error")
+	public String getErrorPath() {
+		return "error";
+	}
+
 	@GetMapping("/customers")
-	public List<Customer> findCustomerAll() {
-		return rewardsService.getCustomerAll();
+	public String findCustomerAll(Model model) {
+		List<Customer> customers=rewardsService.getCustomerAll();
+		model.addAttribute("costumers", customers);
+		return "customer";
 	}
 	
 	@GetMapping("/customers/{id}")
-	public ResponseEntity<Customer> getCustomer(@PathVariable Integer id) {
+	public String getCustomer(@PathVariable Integer id,Model model) {
 		Customer customer = rewardsService.getCustomerById(id);
-		if (customer == null) return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+		model.addAttribute("costumer", customer);
+		return "profile";
 	}
-	
+	@GetMapping("/{id}/offers")
+	public String redeem(@PathVariable Integer id,Model model) {
+		Customer customer = rewardsService.getCustomerById(id);
+		Long mtcoins=customer.getRewardPoints();
+		model.addAttribute("mtcoins", mtcoins);
+		return "offer";
+	}
 	
 }

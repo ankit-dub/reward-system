@@ -2,13 +2,7 @@ package com.example.hackathon.model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -21,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class MyTransaction extends Reward{
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 
 	@JsonIgnore
@@ -36,6 +30,8 @@ public class MyTransaction extends Reward{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date saveDate;
 
+	private int tenure;
+
 
 	@Override
 	public Long getPoints() {
@@ -43,8 +39,7 @@ public class MyTransaction extends Reward{
 		
 		if (this.amount > 10 && this.amount <= 75) {
 			this.points += 2;
-		} 
-		
+		}
 		if (this.amount > 75 && this.amount <= 125) {
 			this.points += 4;  //4 point for every emi spent over 75k
 		}
@@ -57,6 +52,8 @@ public class MyTransaction extends Reward{
 		if (this.amount > 350 && this.amount <= 500) {
 			this.points += 10;  //10 point for every emi spent over 350k
 		}
+		this.points += this.tenure/3;
+
 		return this.points;
 	}
 
