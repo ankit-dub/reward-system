@@ -12,17 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-public class RewardsController implements ErrorController {
+public class RewardsController {
 
 
 	@Autowired
 	private RewardsService rewardsService;
-
-	@Override
-	@GetMapping("/error")
-	public String getErrorPath() {
-		return "error";
-	}
 
 	@GetMapping("/customers")
 	public String findCustomerAll(Model model) {
