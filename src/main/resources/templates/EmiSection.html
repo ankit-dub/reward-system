@@ -29,7 +29,6 @@
                                 <th>Descriotion</th>
                                 <th>Amount</th>
                                 <th>Tenure</th>
-                                <th>Date</th>
                                 <th>Rewards</th>
                                 <th>Redeem</th>
                             </tr>
@@ -38,8 +37,7 @@
                             <tr th:each="emi : ${emis}">
                                 <td th:text="${emi.description}" ></td>
                                 <td th:text="${emi.amount}"></td>
-                                <td th:number="${emi.tenure}"></td>
-                                <td th:date="${emi.saveDate}"></td>
+                                <td th:text="${emi.tenure}"></td>
                                 <td th:text="${emi.getPoints()}"></td>
 
                                 <td>

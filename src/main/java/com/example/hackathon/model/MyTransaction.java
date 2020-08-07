@@ -27,10 +27,10 @@ public class MyTransaction extends Reward{
 
 	private String description;
 
+	private int tenure;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date saveDate;
-
-	private int tenure;
 
 
 	@Override

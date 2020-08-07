@@ -31,12 +31,15 @@ public class RewardsController {
 		model.addAttribute("costumer", customer);
 		return "profile";
 	}
-	@GetMapping("/{id}/offers")
+	/*@GetMapping("/{id}/offers")
 	public String redeem(@PathVariable Integer id,Model model) {
 		Customer customer = rewardsService.getCustomerById(id);
-		Long mtcoins=customer.getRewardPoints();
-		model.addAttribute("mtcoins", mtcoins);
+		//Long mtcoins=customer.getRewardPoints();
+		model.addAttribute("mtcoins", customer);
+		return "offer";
+	}*/
+	@GetMapping("/offers")
+	public String redeem(Model model) {
 		return "offer";
 	}
-	
 }

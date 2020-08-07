@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,9 +18,9 @@ public class EmiController {
     @Autowired
     private EmiService emiService;
 
-    @GetMapping("/emi")
-    public String findTransactionAll(Model model) {
-        List<MyTransaction> emis=emiService.getTransactionAll();
+    @GetMapping("/{id}/emi")
+    public String findTransactionAll(@PathVariable Integer id, Model model) {
+        List<MyTransaction> emis=emiService.getTransactionAll(id);
         model.addAttribute("emis", emis);
         return "EmiSection";
     }
@@ -27,7 +28,7 @@ public class EmiController {
     public String addExpense(Model model) {
         {
             model.addAttribute("emi", new MyTransaction());
-            return "createEmi";
+            return "newEmi";
         }
     }
     @RequestMapping(path = "/createEmi", method = RequestMethod.POST)

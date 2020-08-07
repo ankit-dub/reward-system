@@ -15,7 +15,7 @@ public class EmiService {
         return emiRepository.save(myTransaction);
     }
 
-    public List<MyTransaction> getTransactionAll(){
-        return emiRepository.findAll();
+    public List<MyTransaction> getTransactionAll(int id){
+        return emiRepository.findAllByCustomerId(id);
     }
 }
