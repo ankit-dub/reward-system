@@ -9,6 +9,11 @@ public abstract class Reward {
 	@Transient    //marking a field as not persistable
 	protected Long points;
 
+	@Transient
+	protected Double emiAmount;
+
 	public abstract Long getPoints();
+
+	public abstract Double getEmiAmount();
 
 }

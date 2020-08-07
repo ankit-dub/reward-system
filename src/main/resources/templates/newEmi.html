@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" href="radio.css">
 </head>
 
 <body>
@@ -29,19 +30,44 @@
                             <input type="text" th:field="*{amount}" class="form-control"
                                    id="amount" placeholder="rupees" />
                         </div>
-                        <div class="form-group col-md-8">
-                            <label for="name" class="col-form-label">Date</label>
-                            <input type="datetime-local" name="Date-start"
-                                   value="2018-06-12T19:30" min="2014-01-01T00:00" max="2020-08-31T00:00"
-                                   th:field="*{saveDate}" class="form-control"
-                                   id="saveDate" placeholder="Date" />
-                        </div>
-                        <div class="form-group col-md-8">
+                       <!-- <div class="form-group col-md-8">
                             <label for="name" class="col-form-label">tenure</label>
                             <input type="number" min="0" max="36" step="3"
                                    th:field="*{tenure}" class="form-control"
                                    id="tenure" placeholder="tenure" />
+                        </div>-->
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Choose Tenure</label>
                         </div>
+                        <div class="box">
+                            <input type="radio" id="tenure1" name="tenure1"  value="3" th:field="*{tenure}">
+                            <label for="tenure1">3 Months</label>
+                        </div>
+                        <div class="box">
+                            <input type="radio" id="tenure2" name="tenure2"  value="6" th:field="*{tenure}">
+                            <label for="tenure2">6 Months</label>
+                        </div>
+                        <div class="box">
+                            <input type="radio" id="tenure3" name="tenure3"  value="9" th:field="*{tenure}">
+                            <label for="tenure3">9 Months</label>
+                        </div>
+                        <div class="box">
+                            <input type="radio" id="tenure4" name="tenure4"  value="12" th:field="*{tenure}">
+                            <label for="tenure4">12 Months</label>
+                        </div>
+                        <div class="box">
+                            <input type="radio" id="tenure5" name="tenure5"  value="18" th:field="*{tenure}">
+                            <label for="tenure5">18 Months</label>
+                        </div>
+                        <div class="box">
+                            <input type="radio" id="tenure6" name="tenure6"  value="24" th:field="*{tenure}">
+                            <label for="tenure6">24 Months</label>
+                        </div>
+                        <div class="box">
+                            <input type="radio" id="tenure7" name="tenure7"  value="36" th:field="*{tenure}">
+                            <label for="tenure7">36 Months</label>
+                        </div>
+                        <br><br>
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" value=" Submit ">
                         </div>
@@ -57,3 +83,4 @@
 </body>
 
 </html>
+

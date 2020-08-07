@@ -22,6 +22,7 @@ public class EmiController {
     public String findTransactionAll(@PathVariable Integer id, Model model) {
         List<MyTransaction> emis=emiService.getTransactionAll(id);
         model.addAttribute("emis", emis);
+        model.addAttribute("id",id);
         return "EmiSection";
     }
     @RequestMapping(value = "/newemi")

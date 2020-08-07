@@ -1,0 +1,16 @@
+.box label {
+display: inline-block;
+left-margin:50px;
+width: 100px;
+padding: 10px;
+border: solid 2px #ccc;
+transition: all 0.3s;
+}
+
+.box input[type="radio"] {
+display: none;
+}
+
+.box input[type="radio"]:checked + label {
+border: solid 2px green;
+}

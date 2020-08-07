@@ -29,8 +29,8 @@
                                 <th>Descriotion</th>
                                 <th>Amount</th>
                                 <th>Tenure</th>
+                                <th>emi amount</th>
                                 <th>Rewards</th>
-                                <th>Redeem</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -38,16 +38,13 @@
                                 <td th:text="${emi.description}" ></td>
                                 <td th:text="${emi.amount}"></td>
                                 <td th:text="${emi.tenure}"></td>
+                                <td th:text="${emi.getEmiAmount()}"></td>
                                 <td th:text="${emi.getPoints()}"></td>
-
-                                <td>
-                                    <a th:href="@{/offers}"
-                                       class="btn btn-primary">
-                                        <i class="fas fa-user-plus ml-2">Redeem</i></a>
-                                </td>
                             </tr>
                             </tbody>
                         </table>
+                            <a th:href=@{/{id}(id=${id})/offers}>
+                            <button class="btn btn-primary" type="button">Redeem</button></a>
                     </div>
 
                 </div>

@@ -1,5 +1,6 @@
 package com.example.hackathon.rewards;
 
+import com.example.hackathon.Exception.RecordNotFoundException;
 import com.example.hackathon.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -17,29 +18,22 @@ public class RewardsController {
 
 	@Autowired
 	private RewardsService rewardsService;
-
-	@GetMapping("/customers")
-	public String findCustomerAll(Model model) {
-		List<Customer> customers=rewardsService.getCustomerAll();
-		model.addAttribute("costumers", customers);
-		return "customer";
-	}
 	
 	@GetMapping("/customers/{id}")
-	public String getCustomer(@PathVariable Integer id,Model model) {
+	public String getCustomer(@PathVariable Integer id,Model model) throws RecordNotFoundException {
 		Customer customer = rewardsService.getCustomerById(id);
-		model.addAttribute("costumer", customer);
+		model.addAttribute("customer", customer);
 		return "profile";
 	}
-	/*@GetMapping("/{id}/offers")
-	public String redeem(@PathVariable Integer id,Model model) {
+	@GetMapping("/{id}/offers")
+	public String redeem(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
-		//Long mtcoins=customer.getRewardPoints();
-		model.addAttribute("mtcoins", customer);
-		return "offer";
-	}*/
-	@GetMapping("/offers")
-	public String redeem(Model model) {
+		//Long mtcoins=customer.getApprvamount();
+		model.addAttribute("customer",customer);
 		return "offer";
 	}
+	/*@GetMapping("/offers")
+	public String redeem(Model model) {
+		return "offer";
+	}*/
 }

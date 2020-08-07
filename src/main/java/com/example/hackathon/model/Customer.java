@@ -23,6 +23,8 @@ public class Customer {
 
 	private String email;
 
+	private Long Apprvamount;
+
 	@JsonIgnore
 	@OneToMany(mappedBy="customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<MyTransaction> transactions;
@@ -33,10 +35,11 @@ public class Customer {
 	@Transient
 	private Double totalPurchases;
 
-	public Customer(Integer id, String email) {
+	public Customer(Integer id, String email,Long Apprvamount) {
 		super();
 		this.id = id;
 		this.email = email;
+		this.Apprvamount=Apprvamount;
 	}
 
 	public Long getRewardPoints() {

@@ -13,26 +13,14 @@
 <div class="container my-2">
     <div class="card">
         <div class="card-body">
+            <h2 th:text="${customer.getEmail()}"></h2>
+            <p th:text="${customer.getApprvamount()}"></p>
             <p class="my-5">
-                <a href="/{id}(id=${customer.id})/emi" class="btn btn-primary">
+                <a th:href=@{/{id}(id=${customer.getId()})/emi} class="btn btn-primary">
                     <i> All</i></a>
             </p>
-            <div class="col-md-10">
-                <table class="table table-striped table-responsive-md">
-                    <thead>
-                    <tr>
-                        <th>customer</th>
-                        <th>total amount</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td th:text="${costumer.email}"></td>
-                        <td th:text="${costumer.totalPurchases}"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+
+
         </div>
     </div>
 </div>
