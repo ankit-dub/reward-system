@@ -1,7 +1,6 @@
 package com.example.hackathon.rewards;
 
-import com.example.hackathon.model.Customer;
-import com.example.hackathon.model.MyTransaction;
+import com.example.hackathon.model.MyEmi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +19,7 @@ public class EmiController {
 
     @GetMapping("/{id}/emi")
     public String findTransactionAll(@PathVariable Integer id, Model model) {
-        List<MyTransaction> emis=emiService.getTransactionAll(id);
+        List<MyEmi> emis=emiService.getTransactionAll(id);
         model.addAttribute("emis", emis);
         model.addAttribute("id",id);
         return "EmiSection";
@@ -28,15 +27,15 @@ public class EmiController {
     @RequestMapping(value = "/newemi")
     public String addEmi(Model model) {
         {
-            model.addAttribute("emi", new MyTransaction());
+            model.addAttribute("emi", new MyEmi());
             return "newEmi";
         }
     }
     @RequestMapping(path = "/createEmi", method = RequestMethod.POST)
-    public String createEmi(@Valid MyTransaction myTransaction)
+    public String createEmi(@Valid MyEmi myEmi)
     {
-        myTransaction = emiService.save(myTransaction);
-        return "redirect:/emi";
+        myEmi = emiService.save(myEmi);
+        return "redirect:/1000/emi";
     }
 
 }

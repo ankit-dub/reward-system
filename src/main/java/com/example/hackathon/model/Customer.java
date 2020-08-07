@@ -3,11 +3,8 @@ package com.example.hackathon.model;
 import java.util.Set;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +23,10 @@ public class Customer {
 	private Long Apprvamount;
 
 	@JsonIgnore
+	@OneToOne(mappedBy="customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private MyEmi emi;
+
+	@JsonIgnore
 	@OneToMany(mappedBy="customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<MyTransaction> transactions;
 
@@ -33,7 +34,7 @@ public class Customer {
 	private Long rewardPoints;
 
 	@Transient
-	private Double totalPurchases;
+	private Double totalPaid;
 
 	public Customer(Integer id, String email,Long Apprvamount) {
 		super();
@@ -43,11 +44,11 @@ public class Customer {
 	}
 
 	public Long getRewardPoints() {
-		if (transactions == null || transactions.isEmpty()) return 0l;
-		
-		return transactions.stream().map(x -> x.getPoints().intValue()).reduce(0, (a,b) -> a + b).longValue();
+		if (emi == null) return 0l;
+		if(transactions==null || transactions.isEmpty()) return emi.getPoints();
+		return emi.getPoints()+transactions.stream().map(x -> x.getPoints().intValue()).reduce(0, (a,b) -> a + b).longValue();
 	}
-	public Double getTotalPurchases() {
+	public Double getTotalPaid() {
 		if (transactions == null || transactions.isEmpty()) return 0d;
 		
 		return transactions.stream().map(x -> x.getAmount().doubleValue()).reduce(0d, (a,b) -> a + b).doubleValue();

@@ -1,11 +1,11 @@
 package com.example.hackathon.rewards;
 
-import com.example.hackathon.model.MyTransaction;
+import com.example.hackathon.model.MyEmi;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface EmiRepository extends JpaRepository<MyTransaction,Long> {
+public interface EmiRepository extends JpaRepository<MyEmi,Long> {
 
-    List<MyTransaction> findAllByCustomerId(int id);
+    List<MyEmi> findAllByCustomerId(int id);
 }
