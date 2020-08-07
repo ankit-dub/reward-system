@@ -37,19 +37,19 @@ public class MyTransaction extends Reward{
 	public Long getPoints() {
 		this.points = 0l;
 		
-		if (this.amount > 10 && this.amount <= 75) {
+		if (this.amount > 10000 && this.amount <= 75000) {
 			this.points += 2;
 		}
-		if (this.amount > 75 && this.amount <= 125) {
+		if (this.amount > 75000 && this.amount <= 125000) {
 			this.points += 4;  //4 point for every emi spent over 75k
 		}
-		if (this.amount > 125 && this.amount <= 225) {
+		if (this.amount > 125000 && this.amount <= 225000) {
 			this.points += 6;
 		}
-		if (this.amount > 225 && this.amount <= 350) {
+		if (this.amount > 225000 && this.amount <= 350000) {
 			this.points += 8;
 		}
-		if (this.amount > 350 && this.amount <= 500) {
+		if (this.amount > 350000 && this.amount <= 500000) {
 			this.points += 10;  //10 point for every emi spent over 350k
 		}
 		this.points += this.tenure/3;

@@ -25,14 +25,14 @@ public class EmiController {
         return "EmiSection";
     }
     @RequestMapping(value = "/newemi")
-    public String addExpense(Model model) {
+    public String addEmi(Model model) {
         {
             model.addAttribute("emi", new MyTransaction());
             return "newEmi";
         }
     }
     @RequestMapping(path = "/createEmi", method = RequestMethod.POST)
-    public String createExpense(@Valid MyTransaction myTransaction)
+    public String createEmi(@Valid MyTransaction myTransaction)
     {
         myTransaction = emiService.save(myTransaction);
         return "redirect:/emi";

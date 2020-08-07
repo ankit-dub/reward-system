@@ -21,9 +21,6 @@ public class Customer {
 	@GeneratedValue
 	private Integer id;
 
-	@Column(name = "email",unique = true)
-	@NotNull(message ="fill the email")
-	@Email(message="invalid email")
 	private String email;
 
 	@JsonIgnore
