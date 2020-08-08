@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>All Emi</title>
+    <title>Emi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
@@ -15,38 +15,37 @@
 <div class="container my-2">
     <div class="card">
         <div class="card-body">
-            <div th:switch="${emis}" class="container my-5">
-                <div class="col-md-10">
-                    <h2 th:case="null">No record found !!</h2>
-                    <div th:case="*">
-                        <table class="table table-striped table-responsive-md">
-                            <thead>
-                            <tr>
-                                <th>Descriotion</th>
-                                <th>Amount</th>
-                                <th>Tenure</th>
-                                <th>emi amount</th>
-                                <th>Rewards</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="emi : ${emis}">
-                                <td th:text="${emi.description}" ></td>
-                                <td th:text="${emi.amount}"></td>
-                                <td th:text="${emi.tenure}"></td>
-                                <td th:text="${emi.getEmiAmount()}"></td>
-                                <td th:text="${emi.getPoints()}"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                            <a th:href=@{/{id}(id=${id})/offers}>
-                            <button class="btn btn-primary" type="button">Redeem</button></a>
-                    </div>
-
-                </div>
+            <div class="col-md-10">
+                <table class="table table-striped table-responsive-md">
+                    <tr>
+                        <th>Description</th>
+                        <td th:text="${emi.description}" ></td>
+                    </tr>
+                    <tr>
+                        <th>Amount</th>
+                        <td th:text="${emi.amount}"></td>
+                    </tr>
+                    <tr>
+                        <th>Tenure</th>
+                        <td th:text="${emi.tenure}"></td>
+                    </tr>
+                    <tr>
+                        <th>emi amount</th>
+                        <td th:text="${emi.getEmiAmount()}"></td>
+                    </tr>
+                    <tr>
+                        <th>Rewards</th>
+                        <td th:text="${emi.getPoints()}"></td>
+                    </tr>
+                </table>
+                <a th:href=@{/{id}/offers(id=${id})}>
+                    <button class="btn btn-primary" type="button">Redeem</button></a>
             </div>
+
         </div>
     </div>
+</div>
+</div>
 </div>
 </body>
 

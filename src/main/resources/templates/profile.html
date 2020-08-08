@@ -69,7 +69,7 @@ button.c {
 
 
     <div class="a"> <button class="b">Repayment</button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        <a th:href=@{/1000/offers}><button class="c" >My Rewards</button> </a> </div>
+        <a th:href=@{/{id}/offers(id=${customer.id})}><button class="c" >My Rewards</button> </a> </div>
     &nbsp;
     &nbsp;
     <div class="a" style="background-color:rgb(27, 62, 84);color:white;padding:20px;"><span class="b">.</span>   You have unlock a magic card for good repayment behaviour</div>

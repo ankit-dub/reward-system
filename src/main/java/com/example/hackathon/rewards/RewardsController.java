@@ -32,8 +32,4 @@ public class RewardsController {
 		model.addAttribute("customer",customer);
 		return "offer";
 	}
-	/*@GetMapping("/offers")
-	public String redeem(Model model) {
-		return "offer";
-	}*/
 }

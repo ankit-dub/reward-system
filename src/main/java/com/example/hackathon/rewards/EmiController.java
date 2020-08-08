@@ -19,8 +19,8 @@ public class EmiController {
 
     @GetMapping("/{id}/emi")
     public String findTransactionAll(@PathVariable Integer id, Model model) {
-        List<MyEmi> emis=emiService.getTransactionAll(id);
-        model.addAttribute("emis", emis);
+        MyEmi emi=emiService.getEmi(id);
+        model.addAttribute("emi", emi);
         model.addAttribute("id",id);
         return "EmiSection";
     }

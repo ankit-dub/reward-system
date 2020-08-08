@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface EmiRepository extends JpaRepository<MyEmi,Long> {
 
-    List<MyEmi> findAllByCustomerId(int id);
+    MyEmi findByCustomerId(int id);
 }
