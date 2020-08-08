@@ -13,8 +13,8 @@
   border: 1px solid white;
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-right: 300px;
-  margin-left: 300px;
+  margin-right: 650px;
+  margin-left: 550px;
   background-color: white;
 }
 
@@ -22,8 +22,8 @@
 
     button.b {
       display: inline-block;
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
       padding: 5px;
       border: 1px solid grey;
       background-color: rgb(167, 148, 17);
@@ -38,8 +38,8 @@ span.b {
 }
 button.c {
       display: inline-block;
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
       right: 5;
       padding: 8px;
       border: 1px solid grey;
@@ -59,7 +59,7 @@ button.c {
 
     </div>
     <div class="a" style="background-color:rgb(16, 173, 205);color:white;padding:20px;">
-        <a href="/newemi" class="btn btn-primary">
+        <a th:href=@{/newemi/{id}(id=${customer.getId()})} class="btn btn-primary">
             <i class="fas fa-user-plus ml-2"> swipe to get money</i></a>
 
     </div>

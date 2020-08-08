@@ -9,183 +9,247 @@
     <title>Collapsable Rows</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="starter-template.css" rel="stylesheet">
+    <style>
+    div.container {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 650px;
+  margin-left: 450px;
+}
+.button {
+  display: inline-block;
+  border-radius: 10px;
+  background-color:#1e8be4;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+  width: 150px;
+  height: 50px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-left: 100px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+    div {
+
+  margin-top: 1px;
+  color: black;
+
+
+
+}
+</style>
 </head>
 
 <body>
 <div class="container">
-
-    <div class="starter-template">
+    <div style="background-color:rgb(27, 62, 84);color:white;padding:20px;width: 900px;height: 100px;margin-left: 100px;">
         <h1>Reedeem Offer</h1>
         <h2 th:text="|Total coins ${customer.getApprvamount()} |"></h2>
 
+
+
     </div>
+
+
     <div>
         <div class="menu">
             <a th:href=@{/customers/{id}(id=${customer.getId()})}>
-            <button class="btn btn-primary" type="button">Home</button></a>
-            <br /><br />
+                <button class="button" style="vertical-align:middle"><span>Home </span></button></a>
+            <div style="background-white:blue;color:white;padding:20px;width: 940px;height: 100px;margin-left: 81px;">
 
-            <div class="accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading country">
-                        <img src="http://placehold.it/100x30" alt="country flag" style="float:left; margin: 3px 10px 0 3px; text-align:center;"/>
-                        <a class="accordion-toggle" data-toggle="collapse" href="#country1">Small Deals</a>
-                    </div>
-                    <div id="country1" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <table class="table table-striped table-condensed">
-                                <thead>
-                                <tr>
-                                    <th>Deal</th>
-                                    <th>coins</th>
-                                    <th>Redeem</th>
-                                </tr>
-                                </thead>
-                                <tbody>
 
-                                <tr>
-                                    <td>Amazon</td>
-                                    <td><span class="label label-success">4 coins</span></td>
-                                    <td>
-                                        <button class="btn btn-mini" type="button">grab it</button>
-                                    </td>
-                                </tr>
+                <div class="accordion">
 
-                                <tr>
-                                    <td>Myntra</td>
-                                    <td>
-                                        <span class="label label-warning">4 coins</span>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-mini" type="button">huge</button>
-                                    </td>
-                                </tr>
+                    <div class="accordion-group">
+                        <div class="w3-show-inline-block">
+                            <img src="coupon.jpg" width="100" height="30" alt="coupon"/> &nbsp; &nbsp; <a class="accordion-toggle" data-toggle="collapse" href="#country1">Small Deals</a>
+                            <!--<img src="http://placehold.it/100x30" alt="country flag" style="float:left; margin: 3px 10px 0 3px; text-align:center;"/>-->
 
-                                </tbody>
-                            </table>
                         </div>
-                    </div>
-                    <div class="accordion-heading country">
-                        <img src="http://placehold.it/100x30" alt="country flag" style="float:left; margin: 3px 10px 0 3px; text-align:center;"/>
-                        <a class="accordion-toggle" data-toggle="collapse" href="#country2">6 coins</a>
-                    </div>
-                    <div id="country2" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <table class="table table-striped table-condensed">
-                                <thead>
-                                <tr>
-                                    <th>Deal</th>
-                                    <th>Redeem</th>
-                                    <th>Redeem --</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>5/10% Cashback at Interest Paid	</td>
-                                    <td>
-                                        <a href="#">take it</a>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-mini" type="button">huge</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Reduced Interest rate for next cycle</td>
-                                    <td>321</td>
-                                    <td>
-                                        <button class="btn btn-mini" type="button">huge</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Improved amount limit for next cycle	</td>
-                                    <td>321</td>
-                                    <td>
-                                        <button class="btn btn-mini" type="button">huge</button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div id="country1" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <table class="table table-striped table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>Deal</th>
+                                        <th>coins</th>
+                                        <th>Redeem</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>Amazon</td>
+                                        <td><span class="label label-success">4 coins</span></td>
+                                        <td>
+                                            <button class="btn btn-mini" type="button">grab it</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Myntra</td>
+                                        <td>
+                                            <span class="label label-warning">4 coins</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-mini" type="button">huge</button>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="accordion-heading country">
-                        <img src="http://placehold.it/100x30" alt="country flag" style="float:left; margin: 3px 10px 0 3px; text-align:center;"/>
-                        <a class="accordion-toggle" data-toggle="collapse" href="#country3">8 coins Benefits from other moneytap products(UCL)	</a>
-                    </div>
-                    <div id="country3" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <table class="table table-striped table-condensed">
-                                <thead>
-                                <tr>
-                                    <th>Deal</th>
-                                    <th>Redeem</th>
-                                    <th>Redeem --</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                        <div class="w3-show-inline-block">
 
-                                <tr>
-                                    <td>UCL</td>
-                                    <td><span class="label label-success">takeit</span></td>
-                                    <td>
-                                        <button class="btn btn-mini" type="button">huge</button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Edu_mt</td>
-                                    <td>
-                                        <span class="label label-warning">Take it</span>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-mini" type="button">huge</button>
-                                    </td>
-                                </tr>
-
-                                </tbody>
-                            </table>
+                            <!--<img src="http://placehold.it/100x30" alt="country flag" style="float:left; margin: 3px 10px 0 3px; text-align:center;"/>-->
+                            &nbsp; &nbsp; &nbsp;<img src="coin.jpg" width="50" height="10" alt="coin"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a class="accordion-toggle" data-toggle="collapse" href="#country2">6 coins</a>
                         </div>
-                    </div>
-                    <div class="accordion-heading country">
-                        <img src="http://placehold.it/100x30" alt="country flag" style="float:left; margin: 3px 10px 0 3px; text-align:center;"/>
-                        <a class="accordion-toggle" data-toggle="collapse" href="#country4">8 coins</a>
-                    </div>
-                    <div id="country4" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <table class="table table-striped table-condensed">
-                                <thead>
-                                <tr>
-                                    <th>Deal</th>
-                                    <th>Redeem</th>
-                                    <th>Redeem --</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Paylater Unlock</td>
-                                    <td>
-                                        <a href="#">take it</a>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-mini" type="button">huge</button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div id="country2" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <table class="table table-striped table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>Deal</th>
+                                        <th>Redeem</th>
+                                        <th>Redeem --</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>5/10% Cashback at Interest Paid	</td>
+                                        <td>
+                                            <a href="#">take it</a>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-mini" type="button">huge</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Reduced Interest rate for next cycle</td>
+                                        <td>321</td>
+                                        <td>
+                                            <button class="btn btn-mini" type="button">huge</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Improved amount limit for next cycle	</td>
+                                        <td>321</td>
+                                        <td>
+                                            <button class="btn btn-mini" type="button">huge</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="w3-show-inline-block">
+                            &nbsp; &nbsp; &nbsp;<img src="coin.jpg" width="50" height="10" alt="coin"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a class="accordion-toggle" data-toggle="collapse" href="#country3">8 coins Benefits from other moneytap products(UCL)	</a>
+                        </div>
+                        <div id="country3" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <table class="table table-striped table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>Deal</th>
+                                        <th>Redeem</th>
+                                        <th>Redeem --</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>UCL</td>
+                                        <td><span class="label label-success">takeit</span></td>
+                                        <td>
+                                            <button class="btn btn-mini" type="button">huge</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Edu_mt</td>
+                                        <td>
+                                            <span class="label label-warning">Take it</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-mini" type="button">huge</button>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="w3-show-inline-block">
+                            &nbsp; &nbsp; &nbsp;<img src="coin.jpg" width="50" height="10" alt="coin"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a class="accordion-toggle" data-toggle="collapse" href="#country4">8 coins 	</a>
+
+                        </div>
+                        <div id="country4" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <table class="table table-striped table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>Deal</th>
+                                        <th>Redeem</th>
+                                        <th>Redeem --</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Paylater Unlock</td>
+                                        <td>
+                                            <a href="#">take it</a>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-mini" type="button">huge</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
 
-</div>
 
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>

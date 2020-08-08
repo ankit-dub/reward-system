@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class EmiController {
@@ -24,10 +23,11 @@ public class EmiController {
         model.addAttribute("id",id);
         return "EmiSection";
     }
-    @RequestMapping(value = "/newemi")
-    public String addEmi(Model model) {
+    @RequestMapping(value = "/newemi/{id}")
+    public String addEmi(@PathVariable Integer id,Model model) {
         {
             model.addAttribute("emi", new MyEmi());
+            model.addAttribute("id",id);
             return "newEmi";
         }
     }
