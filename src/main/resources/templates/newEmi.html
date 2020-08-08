@@ -89,12 +89,41 @@ border: solid 2px green;
                             <label for="tenure7">36 Months</label>
                         </div>
                         <script>
+
 $(document).ready(function(){
-  $("input").click(function(){
-    $(this).hide();
-  });
+  $("input[type='radio']").click(function(){
+if($(this).val()=="3")
+{
+$("#emi").text("12% interest");
+}else
+if($(this).val()=="6")
+{
+$("#emi").text("12% interest");
+}else
+if($(this).val()=="9")
+{
+$("#emi").text("12% interest");
+}else
+if($(this).val()=="12")
+{
+$("#emi").text("13% interest");
+}else
+if($(this).val()=="18")
+{
+$("#emi").text("13% interest");
+}else
+if($(this).val()=="24")
+{
+$("#emi").text("15% interest");
+}else
+if($(this).val()=="36")
+{
+$("#emi").text("18% interest");
+}
+});
 });
 </script>
+                        <div><p id="emi" style="color:red;font-size:20px;width:500px;"></p></div>
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" value=" Submit ">
                         </div>
