@@ -1,9 +1,12 @@
-.box label {
+        .box label {
 display: inline-block;
 width: 100px;
 padding: 10px;
+border-radius: 15px;
 border: solid 2px #ccc;
 transition: all 0.3s;
+color: blue;
+background-color:pink;
 }
 
 .box input[type="radio"] {

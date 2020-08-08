@@ -38,22 +38,22 @@ public class MyEmi extends Reward{
 		this.points = 0l;
 		
 		if (this.amount > 10000 && this.amount <= 75000) {
-			this.points += 20;
+			this.points += 200;
 
 		}
 		if (this.amount > 75000 && this.amount <= 125000) {
-			this.points += 40;
+			this.points += 300;
 		}
 		if (this.amount > 125000 && this.amount <= 225000) {
-			this.points += 60;
+			this.points += 380;
 		}
 		if (this.amount > 225000 && this.amount <= 350000) {
-			this.points += 80;
+			this.points += 600;
 		}
 		if (this.amount > 350000 && this.amount <= 500000) {
-			this.points += 100;  //10 point for every emi spent over 350k
+			this.points += 800;  //10 point for every emi spent over 350k
 		}
-		this.points += this.tenure*5/3;
+		this.points += this.tenure*10/3;
 
 		return this.points;
 	}

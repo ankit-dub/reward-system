@@ -1,5 +1,6 @@
 package com.example.hackathon.rewards;
 
+import com.example.hackathon.model.Customer;
 import com.example.hackathon.model.MyEmi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,7 @@ public class EmiController {
     @RequestMapping(path = "/createEmi", method = RequestMethod.POST)
     public String createEmi(@Valid MyEmi myEmi)
     {
+        Customer customer=myEmi.getCustomer();
         myEmi = emiService.save(myEmi);
         return "redirect:/1000/emi";
     }

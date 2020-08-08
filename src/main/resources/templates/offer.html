@@ -73,7 +73,7 @@
 <div class="c">
     <div style="background-color:rgb(27, 62, 84);color:white;padding:20px;width: 600px;height: 100px;margin-left: 100px;">
         <h1>Reedeem Offer</h1>
-        <h2 th:text="|Total coins ${customer.getApprvamount()} |"></h2>
+        <h2 th:text="|Total coins ${customer.getRewardPoints()} |"></h2>
 
 
 
@@ -131,8 +131,8 @@
                         </div>
                         <div class="w3-show-inline-block">
 
-                            <!--<img src="http://placehold.it/100x30" alt="country flag" style="float:left; margin: 3px 10px 0 3px; text-align:center;"/>-->
-                            &nbsp; &nbsp; &nbsp;<img src="coin.jpg" width="50" height="10" alt="coin"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a class="accordion-toggle" data-toggle="collapse" href="#country2">6 coins</a>
+                            <img src="http://placehold.it/100x30" alt="country flag" style="float:left; margin: 3px 10px 0 3px; text-align:center;"/>
+                            &nbsp; &nbsp; &nbsp;<!--<img th:src="@{/templates/coin.jpg}" width="50" height="10" alt="coin"/> -->&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a class="accordion-toggle" data-toggle="collapse" href="#country2">6 coins</a>
                         </div>
                         <div id="country2" class="accordion-body collapse">
                             <div class="accordion-inner">

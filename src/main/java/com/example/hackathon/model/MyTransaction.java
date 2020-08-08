@@ -29,7 +29,6 @@ public class MyTransaction extends Reward{
 
         if (this.amount > 1000 && this.amount <= 5000) {
             this.points += 10;
-
         }
         if (this.amount > 5000 && this.amount <= 15000) {
             this.points += 20;
