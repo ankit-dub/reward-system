@@ -42,6 +42,20 @@ public class RewardsController {
 		customerRepository.save(customer);
 		return "AmazonCoupon";
 	}
+	@GetMapping("/{id}/myntra")
+	public String myntra(@PathVariable Integer id,Model model) throws RecordNotFoundException{
+		Customer customer = rewardsService.getCustomerById(id);
+		customer.setRewardPoints(450l);
+		customerRepository.save(customer);
+		return "MyntraCoupon";
+	}
+	@GetMapping("/{id}/magic")
+	public String magic(@PathVariable Integer id,Model model) throws RecordNotFoundException{
+		Customer customer = rewardsService.getCustomerById(id);
+		customer.setRewardPoints(450l);
+		customerRepository.save(customer);
+		return "MagicCard";
+	}
 	@GetMapping("/redeem")
 	public String redeem() {
 
