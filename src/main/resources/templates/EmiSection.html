@@ -47,12 +47,12 @@
             <div class="card" style="width:650px;">
         <div class="card-body">
             <div class="col-md-10">
-                <i style="font-size:40px;margin-left: 150px;" class="fa">&#127974;</i>
+                <i style="font-size:40px;margin-left: 150px;" class="fa">&#9989;</i>
                 <h2>Money Transfer Successful</h2>
                 <h3 th:text="|&#8377; ${emi.amount}|"></h3>
                 <table class="table table-striped table-responsive-md">
                     <tr>
-                        <th>Description</th>
+                        <th>Bank</th>
                         <td th:text="${emi.description}" ></td>
                     </tr>
                     <tr>
@@ -82,7 +82,7 @@
     &nbsp;
     <div style="background-color:lightgrey;color:white;padding:20px;border-radius: 15px;width: 680px;height: 100px;">
 
-        <button class="button button3">You Have won a magic card </button>
+        <button class="button button3" onclick="window.location.href='/redeem'"><span style='font-size:20px;'>&#128451;</span>You Have won a magic card </button>
     </div>
     &nbsp;
     <div style="background-color:lightgrey;color:white;padding:20px;border-radius: 15px;width: 680px;height: 100px;">

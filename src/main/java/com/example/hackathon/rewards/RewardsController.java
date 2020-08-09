@@ -18,6 +18,9 @@ public class RewardsController {
 
 	@Autowired
 	private RewardsService rewardsService;
+
+	@Autowired
+	private CustomerRepository customerRepository;
 	
 	@GetMapping("/customers/{id}")
 	public String getCustomer(@PathVariable Integer id,Model model) throws RecordNotFoundException {
@@ -26,10 +29,22 @@ public class RewardsController {
 		return "profile";
 	}
 	@GetMapping("/{id}/offers")
-	public String redeem(@PathVariable Integer id,Model model) throws RecordNotFoundException{
+	public String offer(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
 		//Long mtcoins=customer.getApprvamount();
 		model.addAttribute("customer",customer);
 		return "offer";
+	}
+	@GetMapping("/{id}/amazon")
+	public String amazon(@PathVariable Integer id,Model model) throws RecordNotFoundException{
+		Customer customer = rewardsService.getCustomerById(id);
+		customer.setRewardPoints(450l);
+		customerRepository.save(customer);
+		return "AmazonCoupon";
+	}
+	@GetMapping("/redeem")
+	public String redeem() {
+
+		return "scratch";
 	}
 }

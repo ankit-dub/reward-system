@@ -40,4 +40,5 @@ public class EmiController {
         return "redirect:/1000/emi";
     }
 
+
 }

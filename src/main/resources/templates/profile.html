@@ -26,6 +26,7 @@
       height: 180px;
       padding: 5px;
       border: 1px solid grey;
+      border-radius: 15px;
       background-color: rgb(167, 148, 17);
 }
 span.b {
@@ -34,6 +35,7 @@ span.b {
       height: 50px;
       padding: 5px;
       border: 1px solid grey;
+      border-radius: 15px;
       background-color: rgb(167, 148, 17);
 }
 button.c {
@@ -42,6 +44,7 @@ button.c {
       height: 180px;
       right: 5;
       padding: 8px;
+      border-radius: 15px;
       border: 1px solid grey;
       background-color: yellow;
 }
@@ -52,9 +55,10 @@ button.c {
 
 
     <div class="a" style="background-color:rgb(27, 62, 84);color:white;padding:30px;">
-        <h2 th:text="${customer.getEmail()}"></h2>
-        <h3>Available balance</h3>
-        <h4  th:text="${customer.getApprvamount()}"><span>&#8377;</span></h4>
+        <h2 th:text="|&#128102; ${customer.getEmail()}|"></h2>
+        <span style='font-size:40px; position: absolute; top: 20px; left: 1000px;'>&#128276;</span>
+        <h3>&nbsp;&nbsp; Available balance</h3>
+        <h4  th:text="|&nbsp; &nbsp;${customer.getApprvamount()}|"><span>&#8377;</span></h4>
 
 
     </div>
@@ -77,7 +81,7 @@ button.c {
     &nbsp;
     &nbsp;
 
-    <div class="a"> <button class="b"><span style='font-size:50px;'>&#128179;</span>Credit Card</button> &nbsp; &nbsp;  <button class="c"><span style='font-size:50px;'>&#128591;</span>Crif Report</button> &nbsp; &nbsp; <button class="c"><span style='font-size:50px;'>&#127974;</span>My EMI</button>  </div>
+    <div class="a"> <button class="b"><span style='font-size:50px;'>&#128179;</span>Credit Card</button> &nbsp; &nbsp;  <button class="c"><span style='font-size:50px;'>&#128226;</span>Crif Report</button> &nbsp; &nbsp; <button class="c"><span style='font-size:50px;'>&#127974;</span>My EMI</button>  </div>
     &nbsp;
     &nbsp;
 
