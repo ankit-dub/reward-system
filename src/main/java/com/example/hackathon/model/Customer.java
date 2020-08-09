@@ -45,8 +45,8 @@ public class Customer {
 
 	public Long getRewardPoints() {
 		if (emi == null) return 0l;
-		if(transactions==null || transactions.isEmpty()) return emi.getPoints();
-		return emi.getPoints()+transactions.stream().map(x -> x.getPoints().intValue()).reduce(0, (a,b) -> a + b).longValue();
+		if(transactions==null || transactions.isEmpty()) return emi.getPoints()+5000l;
+		return emi.getPoints()+transactions.stream().map(x -> x.getPoints().intValue()).reduce(0, (a,b) -> a + b).longValue()+5000l;
 	}
 	public Double getTotalPaid() {
 		if (transactions == null || transactions.isEmpty()) return 0d;
