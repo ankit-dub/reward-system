@@ -58,9 +58,9 @@ button.c {
         <h2 th:text="|&#128102; ${customer.getEmail()}|"></h2>
         <span style='font-size:40px; position: absolute; top: 20px; left: 1000px;'>&#128276;</span>
         <h3>&nbsp;&nbsp; Available balance</h3>
-        <h4  th:text="|&nbsp; &nbsp;${customer.getApprvamount()}|"><span>&#8377;</span></h4>
+        <h4  th:text="|&nbsp; &nbsp;${customer.getApprvamount()}|"><button id="notify">&#8377;</button></h4>
 
-
+        <div><p id="emi" style="color:red;font-size:20px;width:500px;"></p></div>
     </div>
     <div class="a" style="background-color:rgb(16, 173, 205);color:white;padding:20px;">
         <a th:href=@{/newemi/{id}(id=${customer.getId()})} class="btn btn-primary">
@@ -81,9 +81,17 @@ button.c {
     &nbsp;
     &nbsp;
 
-    <div class="a"> <button class="b"><span style='font-size:50px;'>&#128179;</span>Credit Card</button> &nbsp; &nbsp;  <button class="c"><span style='font-size:50px;'>&#128226;</span>Crif Report</button> &nbsp; &nbsp; <button class="c"><span style='font-size:50px;'>&#127974;</span>My EMI</button>  </div>
+    <div class="a"> <button class="b"><span style='font-size:50px;'>&#128179;</span>Credit Card</button> &nbsp; &nbsp;
+        <button class="c"><span style='font-size:50px;'>&#128226;</span>Crif Report</button> &nbsp; &nbsp;
+        <a th:href=@{/{id}/emi(id=${customer.getId()})}><button class="c"><span style='font-size:50px;'>&#127974;</span>My EMI</button> </a> </div>
     &nbsp;
-    &nbsp;
+    &nbsp;<script>
+
+$(document).ready(function(){
+  $("#notify").click(function(){
+$("#emi").text("No notification");
+}
+</script>
 
 
 </body>

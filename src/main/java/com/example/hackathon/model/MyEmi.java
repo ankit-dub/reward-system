@@ -45,7 +45,7 @@ public class MyEmi extends Reward{
 			this.points += 300;
 		}
 		if (this.amount > 125000 && this.amount <= 225000) {
-			this.points += 380;
+			this.points += 420;
 		}
 		if (this.amount > 225000 && this.amount <= 350000) {
 			this.points += 600;

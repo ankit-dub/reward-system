@@ -47,4 +47,9 @@ public class RewardsController {
 
 		return "scratch";
 	}
+	@GetMapping("/scratch")
+	public String scratch() {
+
+		return "scratchReward";
+	}
 }
