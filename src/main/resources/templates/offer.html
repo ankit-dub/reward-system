@@ -89,6 +89,16 @@ font-family: Arial;
 .expire {
   color: red;
 }
+.buttonn {
+  text-align: center;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2 {background-color:orange;color:black;width: 100px;height: 30px;border-radius: 10px;
+}
+.button3 {background-color:red;color:black;width: 150px;height: 50px;border-radius: 10px;
+}
 </style>
 </head>
 
@@ -108,7 +118,7 @@ font-family: Arial;
 
             <a th:href=@{/customers/{id}(id=${customer.getId()})}>
                 <button class="button" style="vertical-align:middle"><span>Home </span></button></a>
-            <div style="background-white:blue;color:white;padding:20px;width: 940px;height: 100px;margin-left: 81px;">
+            <div style="background-white:blue;color:white;width: 940px;height: 100px;margin-left: 101px;">
 
                 <div class="accordion" style="margin-right: 300px;">
 
@@ -116,7 +126,7 @@ font-family: Arial;
                         <img src="data:image/png;base64,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" width="50" height="30"  alt="waiver">
                         <a style="font-size:20px;margin-left: 5px; color:#edebb5;">Redeem total credit and reduce your next emi!!</a><br>
                             <a th:href=@{/{id}/magic(id=${customer.getId()})}>
-                                <button class="btn btn-mini" >Go to My Rewards</button></a>
+                                <button class="buttonn button3" >Go to My Rewards</button></a>
                     </div>
                     <h3>Core benefits</h3>
                     <div class="accordion-group">
@@ -141,28 +151,28 @@ font-family: Arial;
                                         <td>5/10% Cashback at Interest Paid	</td>
                                         <td><span class="label label-success">600 credit points</span></td>
                                         <td>
-                                            <button class="btn btn-mini" type="button">Redeem</button>
+                                            <button class="buttonn button2" type="button">Redeem</button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Reduced Interest rate for next cycle</td>
                                         <td><span class="label label-success">600 credit points</span></td>
                                         <td>
-                                            <button class="btn btn-mini" type="button">Redeem</button>
+                                            <button class="buttonn button2" type="button">Redeem</button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Improved amount limit for next cycle	</td>
                                         <td><span class="label label-success">600 credit points</span></td>
                                         <td>
-                                            <button class="btn btn-mini" type="button">Redeem</button>
+                                            <button class="buttonn button2" type="button">Redeem</button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Pay Later</td>
                                         <td><span class="label label-success">800 credit points</span></td>
                                         <td>
-                                            <button class="btn btn-mini" type="button">Redeem</button>
+                                            <button class="buttonn button2" type="button">Redeem</button>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -194,7 +204,7 @@ font-family: Arial;
                                         <td>Amazon</td>
                                         <td><span class="label label-success">400 credit points</span></td>
                                         <td><a th:href=@{/{id}/amazon(id=${customer.getId()})}>
-                                            <button class="btn btn-mini" type="button">Redeem</button></a>
+                                            <button class="buttonn button2" type="button">Redeem</button></a>
                                         </td>
                                     </tr>
 
@@ -203,12 +213,26 @@ font-family: Arial;
                                         <td><span class="label label-success">400 credit points</span></td>
                                         <td>
                                             <a th:href=@{/{id}/myntra(id=${customer.getId()})}>
-                                                <button class="btn btn-mini" type="button">Redeem</button></a>
+                                                <button class="buttonn button2" type="button">Redeem</button></a>
                                         </td>
                                     </tr>
 
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="coupon">
+                                <div class="container">
+                                    <h3>Amazon Coupon</h3>
+                                </div>
+                                <img src="data:image/png;base64,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" width=120px height=120px alt="Avatar">
+                                <div class="container" style="background-color:white">
+                                    <h2><b>20% OFF YOUR PURCHASE</b></h2>
+                                    <p>Something</p>
+                                </div>
+                                <div class="container">
+                                    <p>Use Promo Code: <span class="promo">BOH232</span></p>
+                                    <p class="expire">Expires: Jan 03, 2021</p>
+                                </div>
                             </div>
                         </div>
 
@@ -232,7 +256,7 @@ font-family: Arial;
                                         <td>Get 30% off on Data Science Courses with Certification from Jigsaw Academy</td>
                                         <td><span class="label label-success">700 credit points</span></td>
                                         <td>
-                                            <button class="btn btn-mini" type="button">Redeem</button>
+                                            <button class="buttonn button2" type="button">Redeem</button>
                                         </td>
                                     </tr>
 
@@ -240,7 +264,7 @@ font-family: Arial;
                                         <td>Get 20% off on Medical Courses Offered by Medvarsity.</td>
                                         <td><span class="label label-success">700 credit points</span></td>
                                         <td>
-                                            <button class="btn btn-mini" type="button">Redeem</button>
+                                            <button class="buttonn button2" type="button">Redeem</button>
                                         </td>
                                     </tr>
 
@@ -268,34 +292,21 @@ font-family: Arial;
                                         <td>Netflix</td>
                                         <td><span class="label label-success">800 credit points</span></td>
                                         <td>
-                                            <button class="btn btn-mini" type="button">Redeem</button>
+                                            <button class="buttonn button2" type="button">Redeem</button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Hotstar</td>
                                         <td><span class="label label-success">800 credit points</span></td>
                                         <td>
-                                            <button class="btn btn-mini" type="button">Redeem</button>
+                                            <button class="buttonn button2" type="button">Redeem</button>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="coupon">
-                        <div class="container">
-                            <h3>Amazon Coupon</h3>
-                        </div>
-                        <img src="data:image/png;base64,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" width=120px height=120px alt="Avatar">
-                        <div class="container" style="background-color:white">
-                            <h2><b>20% OFF YOUR PURCHASE</b></h2>
-                            <p>Something</p>
-                        </div>
-                        <div class="container">
-                            <p>Use Promo Code: <span class="promo">BOH232</span></p>
-                            <p class="expire">Expires: Jan 03, 2021</p>
-                        </div>
+
                     </div>
                 </div>
 

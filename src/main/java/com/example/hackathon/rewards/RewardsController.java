@@ -56,6 +56,11 @@ public class RewardsController {
 		customerRepository.save(customer);
 		return "MagicCard";
 	}
+	@GetMapping("/mgcRwrd")
+	public String magicRwrd() {
+
+		return "MagicReward";
+	}
 	@GetMapping("/redeem")
 	public String redeem() {
 
