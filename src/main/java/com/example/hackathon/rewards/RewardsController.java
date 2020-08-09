@@ -28,6 +28,7 @@ public class RewardsController {
 		model.addAttribute("customer", customer);
 		return "profile";
 	}
+
 	@GetMapping("/{id}/offers")
 	public String offer(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
@@ -35,11 +36,13 @@ public class RewardsController {
 		model.addAttribute("customer",customer);
 		return "offer";
 	}
+
 	@GetMapping("/{id}/amazon")
 	public String amazon(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
 		customer.setRewardPoints(450l);
-		customerRepository.save(customer);
+		customer=customerRepository.save(customer);
+		model.addAttribute("customer",customer);
 		return "AmazonCoupon";
 	}
 	@GetMapping("/{id}/myntra")

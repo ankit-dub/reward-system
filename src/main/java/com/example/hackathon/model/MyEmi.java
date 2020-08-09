@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -24,6 +26,8 @@ public class MyEmi extends Reward{
 	@JoinColumn
 	private Customer customer;
 
+	@Max(value = 6000000)
+	@Min(value = 0)
 	private Double amount;
 
 	private String description;
