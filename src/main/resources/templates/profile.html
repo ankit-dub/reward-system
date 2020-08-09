@@ -9,72 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <style>
-    $bgColor: #3a3d55;
-$slideBgColor: rgba(255,255,255,0.3);
-$slideBallColor: white;
-$slideBallIconColor: black;
-$slideTextColor: #3a3d55;
-
-
-@mixin center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@mixin nonselect {
-	-webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-	cursor: default;
-}
-#button-background {
-	position: relative;
-	background-color: $slideBgColor;
-	width: 400px;
-	height: 80px;
-	border: white;
-	border-radius: 40px;
-  @include center;
-}
-
-#slider {
-	transition: width 0.3s,
-		border-radius 0.3s,
-		height 0.3s;
-	position: absolute;
-	left: -10px;
-	background-color: $slideBallColor;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	@include center;
-	&.unlocked {
-		transition: all 0.3s;
-		width: inherit;
-		left: 0 !important;
-		height: inherit;
-		border-radius: inherit;
-	}
-}
-
-.material-icons {
-	color: $slideBallIconColor;
-	font-size: 50px;
-	@include nonselect;
-}
-
-.slide-text {
-	color: $slideTextColor;
-	font-size: 24px;
-	text-transform: uppercase;
-	font-family: 'Roboto', sans-serif;
-	@include nonselect;
-}
-
     div.a {
   border: 1px solid white;
   margin-top: 0px;
@@ -136,12 +70,9 @@ button.c {
 
 
     </div>
-    <div id="button-background">
-        <span class="slide-text">Swipe to get money</span>
-        <div id="slider">
-            <i id="locker" class="material-icons">lock_open</i>
-        </div>
-    </div>
+    <div class="a" style="background-color:rgb(16, 173, 205);color:white;padding:20px;">
+        <a th:href=@{/newemi/{id}(id=${customer.getId()})} class="btn btn-primary">
+            <i class="fas fa-user-plus ml-2"> Tap to get money</i></a>
 
     </div>
     &nbsp;
@@ -172,66 +103,6 @@ function myFunction() {
     x.style.display = "none";
   }
 }
-
-var initialMouse = 0;
-var slideMovementTotal = 0;
-var mouseIsDown = false;
-var slider = $('#slider');
-
-slider.on('mousedown touchstart', function(event){
-	mouseIsDown = true;
-	slideMovementTotal = $('#button-background').width() - $(this).width() + 10;
-	initialMouse = event.clientX || event.originalEvent.touches[0].pageX;
-});
-
-$(document.body, '#slider').on('mouseup touchend', function (event) {
-	if (!mouseIsDown)
-		return;
-	mouseIsDown = false;
-	var currentMouse = event.clientX || event.changedTouches[0].pageX;
-	var relativeMouse = currentMouse - initialMouse;
-
-	if (relativeMouse < slideMovementTotal) {
-		$('.slide-text').fadeTo(300, 1);
-		slider.animate({
-			left: "-10px"
-		}, 300);
-		return;
-	}
-	slider.addClass('unlocked');
-	$('#locker').text('lock_outline');
-	setTimeout(function(){
-		slider.on('click tap', function(event){
-			if (!slider.hasClass('unlocked'))
-				return;
-			slider.removeClass('unlocked');
-			$('#locker').text('lock_open');
-			slider.off('click tap');
-		});
-	}, 0);
-});
-
-$(document.body).on('mousemove touchmove', function(event){
-	if (!mouseIsDown)
-		return;
-
-	var currentMouse = event.clientX || event.originalEvent.touches[0].pageX;
-	var relativeMouse = currentMouse - initialMouse;
-	var slidePercent = 1 - (relativeMouse / slideMovementTotal);
-
-	$('.slide-text').fadeTo(0, slidePercent);
-
-	if (relativeMouse <= 0) {
-		slider.css({'left': '-10px'});
-		return;
-	}
-	if (relativeMouse >= slideMovementTotal + 10) {
-		slider.css({'left': slideMovementTotal + 'px'});
-		return;
-	}
-	slider.css({'left': relativeMouse - 10});
-});
-
 </script>
 
 
