@@ -3,14 +3,10 @@ package com.example.hackathon.rewards;
 import com.example.hackathon.Exception.RecordNotFoundException;
 import com.example.hackathon.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 @Controller
 public class RewardsController {
@@ -32,6 +28,7 @@ public class RewardsController {
 	@GetMapping("/{id}/offers")
 	public String offer(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
+		customer.setPlease(customer.getRewardPoints());
 		//Long mtcoins=customer.getApprvamount();
 		model.addAttribute("customer",customer);
 		return "offer";
@@ -40,6 +37,8 @@ public class RewardsController {
 	@GetMapping("/{id}/amazon")
 	public String amazon(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
+		customer.setPlease(50l);
+		customer.setApprvamount(400l);
 		customer.setRewardPoints(450l);
 		customer=customerRepository.save(customer);
 		model.addAttribute("customer",customer);
@@ -48,7 +47,7 @@ public class RewardsController {
 	@GetMapping("/{id}/myntra")
 	public String myntra(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
-		customer.setRewardPoints(450l);
+		customer.setRewardPoints(45l);
 		customerRepository.save(customer);
 		return "MyntraCoupon";
 	}

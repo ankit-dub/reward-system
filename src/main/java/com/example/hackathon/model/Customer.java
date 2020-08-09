@@ -22,6 +22,10 @@ public class Customer {
 
 	private Long Apprvamount;
 
+	private Long please;
+
+	private Long rewardPoints;
+
 	@JsonIgnore
 	@OneToOne(mappedBy="customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private MyEmi emi;
@@ -30,17 +34,17 @@ public class Customer {
 	@OneToMany(mappedBy="customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<MyTransaction> transactions;
 
-	@Transient
-	private Long rewardPoints;
+
 
 	@Transient
 	private Double totalPaid;
 
-	public Customer(Integer id, String email,Long Apprvamount) {
+	public Customer(Integer id, String email,Long Apprvamount,Long rewardPoints) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.Apprvamount=Apprvamount;
+		this.rewardPoints=rewardPoints;
 	}
 
 	public Long getRewardPoints() {
@@ -53,6 +57,5 @@ public class Customer {
 		
 		return transactions.stream().map(x -> x.getAmount().doubleValue()).reduce(0d, (a,b) -> a + b).doubleValue();
 	}
-	
-	
+
 }
