@@ -136,9 +136,9 @@ $("#emi").text("18% interest");
                         <div>
                             <input type="hidden" id="id" th:field="*{id}">
                         </div>
-                        <!--<div>
-                            <input type="hidden" id="customerid" value="${id}" th:field="*{customer.id}">
-                        </div>-->
+                        <div>
+                            <input type="hidden" id="customerid" th:value="${id}" th:field="*{customer.id}">
+                        </div>
                     </div>
                 </form>
             </div>

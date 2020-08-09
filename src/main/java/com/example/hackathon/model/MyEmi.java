@@ -22,8 +22,8 @@ public class MyEmi extends Reward{
 	private Long id;
 
 	@JsonIgnore
-	@OneToOne
-	@JoinColumn
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
 	@Max(value = 6000000)

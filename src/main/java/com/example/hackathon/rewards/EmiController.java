@@ -25,7 +25,7 @@ public class EmiController {
         return "EmiSection";
     }
     @RequestMapping(value = "/newemi/{id}")
-    public String addEmi(@PathVariable Integer id,Model model) {
+    public String addEmi(@PathVariable Integer id,Model model){
         {
             model.addAttribute("emi", new MyEmi());
             model.addAttribute("id",id);
