@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -95,12 +95,14 @@ p.normal {
         <h1 style="background-color:#edebb5;margin-left: 30px;margin-top: 10px;color:#2bc9e9;font-size: 1.5em;"><span style='font-size:10px;'>&#11088;</span><b>TOTAL CREDIT</b><span style='font-size:20px;'>&#11088;</span></h1>
         <h1 style="background-color:#edebb5;color:#056169;margin-left: 70px;font-size: 2em;"><b>POINTS</b></h1>
         <button class="button button2">&#11088;</button>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        <button class="button button2" onclick="window.location.href='/mgcRwrd'"><span style='font-size:0px;'>&#8226;</span></button>
+        <a th:href=@{/{id}/mgcRwrd(id=${customer.id})}>
+            <button class="button button2"><span style='font-size:0px;'>&#8226;</span></button></a>
         &nbsp;
         &nbsp;
         <h5 style="background-color:#0a4f5b;margin-left: 30px; color:#1e9ec6;">Drag star into empty circle to redeem total credit points  </h5>
 
-        <button style="position:absolute;top:30px;left:900px;" onclick="window.location.href='/1000/offers'"><span style='font-size:20px;'>&#10060;</span></button>
+        <a th:href=@{/{id}/offer(id=${customer.id})}>
+            <button style="position:absolute;top:30px;left:900px;" ><span style='font-size:20px;'>&#10060;</span></button></a>
     </div>
 
 

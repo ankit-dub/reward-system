@@ -22,8 +22,6 @@ public class Customer {
 
 	private Long Apprvamount;
 
-	private Long please;
-
 	private Long rewardPoints;
 
 	@JsonIgnore

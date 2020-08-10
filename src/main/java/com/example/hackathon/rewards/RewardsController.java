@@ -26,21 +26,34 @@ public class RewardsController {
 	}
 
 	@GetMapping("/{id}/offers")
-	public String offer(@PathVariable Integer id,Model model) throws RecordNotFoundException{
+	public String offers(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
-		customer.setPlease(customer.getRewardPoints());
-		//Long mtcoins=customer.getApprvamount();
+		Long mtcoins=customer.getRewardPoints();
 		model.addAttribute("customer",customer);
+		model.addAttribute("mtcoins",mtcoins);
 		return "offer";
 	}
 
+	@GetMapping("/{id}/offer")
+	public String offer(@PathVariable Integer id,Model model) throws RecordNotFoundException{
+		Customer customer = rewardsService.getCustomerById(id);
+		Long mtcoins=customer.getRewardPoints()-500l;
+		model.addAttribute("customer",customer);
+		model.addAttribute("mtcoins",mtcoins);
+		return "offer";
+	}
+	@GetMapping("/{id}/offrs")
+	public String offrs(@PathVariable Integer id,Model model) throws RecordNotFoundException{
+		Customer customer = rewardsService.getCustomerById(id);
+		Long mtcoins=0l;
+		model.addAttribute("customer",customer);
+		model.addAttribute("mtcoins",mtcoins);
+		return "offer";
+	}
 	@GetMapping("/{id}/amazon")
 	public String amazon(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
-		customer.setPlease(50l);
-		customer.setApprvamount(400l);
-		customer.setRewardPoints(450l);
-		customer=customerRepository.save(customer);
+		customer.setRewardPoints(customer.getRewardPoints()-500l);
 		model.addAttribute("customer",customer);
 		return "AmazonCoupon";
 	}
@@ -54,13 +67,13 @@ public class RewardsController {
 	@GetMapping("/{id}/magic")
 	public String magic(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
-		customer.setRewardPoints(450l);
-		customerRepository.save(customer);
+		model.addAttribute("customer",customer);
 		return "MagicCard";
 	}
-	@GetMapping("/mgcRwrd")
-	public String magicRwrd() {
-
+	@GetMapping("/{id}/mgcRwrd")
+	public String magicRwrd(@PathVariable Integer id,Model model) throws RecordNotFoundException{
+		Customer customer = rewardsService.getCustomerById(id);
+		model.addAttribute("customer",customer);
 		return "MagicReward";
 	}
 	@GetMapping("/redeem")

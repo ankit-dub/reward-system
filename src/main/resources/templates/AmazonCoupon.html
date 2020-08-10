@@ -46,6 +46,7 @@ body {
         <p class="expire">Expires: Jan 03, 2021</p>
     </div>
 </div>
-<button style="position:absolute;top:30px;left:900px;" onclick="window.location.href='/1000/offers'"><span style='font-size:20px;'>&#10060;</span></button>
+<a th:href=@{/{id}/offer(id=${customer.id})}>
+<button style="position:absolute;top:30px;left:900px;"><span style='font-size:20px;'>&#10060;</span></button></a>
 </body>
 </html>

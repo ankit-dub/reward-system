@@ -36,6 +36,7 @@ public class EmiController {
     public String createEmi(@Valid MyEmi myEmi)
     {
         Customer customer=myEmi.getCustomer();
+        Integer id=customer.getId();
         myEmi = emiService.save(myEmi);
         return "redirect:/1000/emi";
     }

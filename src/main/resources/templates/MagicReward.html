@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -60,10 +60,13 @@ p.normal {
         <h1 style="font-family:verdana;background-color:#edebb5;color:#ffc107;margin-left: 45px;font-size: 3.7em;"><b>&#8377;1500</b></h1>
 
         <h1 style="background-color:#edebb5;color:black;margin-left: 30px;font-size: 1.2em; text-align:center;">Is reduced from your next month EMI</h1>
-        <button class="button button2" onclick="window.location.href='/1000/offers'">Go to My Rewards</button>
+
+        <a th:href=@{/{id}/offrs(id=${customer.id})}>
+            <button class="button button2" onclick="window.location.href='/1000/offers'">Go to My Rewards</button></a>
 
     </div>
-    <button style="position:absolute;top:30px;left:900px;" onclick="window.location.href='/1000/offers'"><span style='font-size:20px;'>&#10060;</span></button>
+    <a th:href=@{/{id}/offrs(id=${customer.id})}>
+        <button style="position:absolute;top:30px;left:900px;"><span style='font-size:20px;'>&#10060;</span></button></a>
 
 </div>
 
