@@ -22,6 +22,7 @@ public class Customer {
 
 	private Long Apprvamount;
 
+	@Transient
 	private Long rewardPoints;
 
 	@JsonIgnore

@@ -67,10 +67,10 @@
                         <th>emi amount</th>
                         <td th:text="${emi.getEmiAmount()}"></td>
                     </tr>
-                    <tr>
+                    <!--<tr id="emi">
                         <th>Rewards</th>
                         <td th:text="${emi.getPoints()}"></td>
-                    </tr>
+                    </tr>-->
                 </table>
                 <a th:href=@{/{id}/offers(id=${id})}>
                     <button class="btn btn-primary" type="button">Go To My Rewards</button></a>
@@ -86,7 +86,7 @@
     </div>
     &nbsp;
     <div style="background-color:lightgrey;color:white;padding:20px;border-radius: 15px;width: 680px;height: 100px;">
-        <button class="button button2" >&#9751;  &nbsp;&nbsp; Tag This Transaction</button>
+        <button id="hide" class="button button2" >&#9751;  &nbsp;&nbsp; Tag This Transaction</button>
 
     </div>
 
@@ -99,9 +99,7 @@
 
 </div>
 </div>
-<script type="text/javascript">
 
-</script>
 </body>
 
 </html>

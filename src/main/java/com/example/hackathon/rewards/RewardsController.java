@@ -67,6 +67,8 @@ public class RewardsController {
 	@GetMapping("/{id}/magic")
 	public String magic(@PathVariable Integer id,Model model) throws RecordNotFoundException{
 		Customer customer = rewardsService.getCustomerById(id);
+		Long mtcoins=customer.getRewardPoints()-500l;
+		model.addAttribute("mtcoins",mtcoins);
 		model.addAttribute("customer",customer);
 		return "MagicCard";
 	}
